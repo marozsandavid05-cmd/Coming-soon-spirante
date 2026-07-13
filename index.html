@@ -6,14 +6,14 @@
 <!-- JS-jelenlet jelzo: a rejtett-indulas CSS CSAK ezzel aktiv. No-JS -> minden tartalom latszik. -->
 <script>document.documentElement.className += ' js';</script>
 <title>ICON Spirante IX · Hamarosan</title>
-<meta name="description" content="ICON Spirante IX prémium spritz. Hamarosan. Pure Taste. Iconic Moments.">
+<meta name="description" content="ICON Spirante IX prémium spritz. Hamarosan: 2026. július 20.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- above-fold split keyartok preload (LCP): avif elsokent -->
 <link rel="preload" as="image" type="image/avif" href="media/keyart-750left-825.avif" fetchpriority="high">
 <link rel="preload" as="image" type="image/avif" href="media/coming-split-right.avif" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:wght@300;400;500;600&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    ICON SPIRANTE IX — Split Underground
@@ -110,8 +110,11 @@ body.age-locked{overflow:hidden}
 .half__bg img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease),filter 1.1s var(--ease)}
 .half__scrim{position:absolute;inset:0;z-index:1;transition:opacity .9s var(--ease)}
 .half__content{position:absolute;z-index:2;display:flex;flex-direction:column;gap:.7rem;max-width:min(80vw,30rem)}
-.half__title{line-height:.95}
-.half__line{color:var(--muted);font-size:.95rem;letter-spacing:.02em}
+/* SZLOGENEK (David referencia 07-13): KEZZEL FESTETT arany brush-lettering KEPKENT (Higgsfield gen,
+   brand-konstans: arany #D9A441/#B07C2E/#7A5320, drip). Nem renderelt font — a fontos headline-ok kepek. */
+.slogan__img{display:block;height:auto;filter:drop-shadow(0 10px 28px rgba(0,0,0,.6))}
+.half--bottle .slogan__img{width:min(27vw,430px)}
+.half--can .slogan__img{width:min(26vw,420px);margin-left:auto}
 
 .half--can{z-index:1}
 .half--bottle{z-index:2}
@@ -127,7 +130,6 @@ body.age-locked{overflow:hidden}
 /* ref scrimL: lokalis folt a bal-also sarokba (szoveg mogott), NEM globalis sotetites */
 .half--bottle .half__scrim{background:radial-gradient(120% 90% at 10% 92%,rgba(10,9,8,.88) 0%,rgba(10,9,8,.38) 42%,transparent 66%)}
 .half--bottle .half__content{bottom:clamp(4.5rem,14vh,9rem);left:var(--pad);text-align:left;align-items:flex-start;z-index:3}
-.half--bottle .half__title{font-family:var(--font-display);font-style:normal;font-weight:500;font-size:clamp(2.6rem,6.5vw,5.6rem)}
 
 /* Dobozos fel: jobb-fent (atlo folott) — clip degeneralt csucs: TISZTA atlos wipe nyitaskor */
 .half--can{clip-path:polygon(55% 0,100% 0,100% 100%,46% 100%)}
@@ -136,14 +138,11 @@ body.age-locked{overflow:hidden}
 .half--can .half__bg img{object-position:62% 42%}
 /* ref scrimR: lokalis folt a jobb-felso sarokba (szoveg mogott) */
 .half--can .half__scrim{background:linear-gradient(255deg,rgba(10,9,8,.82) 8%,rgba(10,9,8,.30) 34%,transparent 55%)}
-.half--can .half__content{top:clamp(5.5rem,16vh,11rem);right:var(--pad);text-align:right;align-items:flex-end;z-index:3}
-.half--can .half__title{font-family:var(--font-graf);font-size:clamp(2.4rem,6vw,5rem);color:var(--ink);letter-spacing:.01em;line-height:1.02}
-.half--can .half__9{font-family:var(--font-display);font-weight:600;color:var(--gold-bright);font-size:clamp(1.6rem,3vw,2.4rem);line-height:1}
+.half--can .half__content{top:clamp(3.6rem,8vh,6rem);right:var(--pad);text-align:right;align-items:flex-end;z-index:3}
 
-/* product-led chooser: darken the scene a touch so the products read first */
-/* minimalis globalis korrekcio (a kontrasztot a lokalis scrimek adjak, nem globalis sotetites) */
-.half--bottle .half__bg img{filter:brightness(.98) saturate(.96)}
-.half--can .half__bg img{filter:brightness(.98)}
+/* TEASER FADE (ugyfel-keres 07-13): mindket kep erosen elhalvanyitva + finom blur, hogy ne latsszon
+   pontosan, mi ez. scale(1.04) a blur-szelek elrejtesere (a .half overflow:hidden vagja). */
+.half--bottle .half__bg img,.half--can .half__bg img{filter:brightness(.42) saturate(.55) blur(2.5px);transform:scale(1.04)}
 
 /* atlos arany varrat — SVG, pontos sarok-sarok */
 .seam{position:absolute;inset:0;z-index:3;width:100%;height:100%;pointer-events:none}
@@ -156,8 +155,7 @@ body.age-locked{overflow:hidden}
 .landing__divider{width:1px;height:2.4rem;margin:.8rem auto 0;background:linear-gradient(var(--gold-bright),transparent)}
 /* ============ B BUILD — TABLET (768-1023): diagonal marad, headline-skala le, crop-recheck ============ */
 @media(min-width:768px) and (max-width:1023px){
-  .half--bottle .half__title{font-size:clamp(2.4rem,6vw,4.4rem)}
-  .half--can .half__title{font-size:clamp(2.2rem,5.6vw,4rem)}
+  .half--bottle .slogan__img,.half--can .slogan__img{width:min(30vw,340px)}
   .half--bottle .half__bg{transform:none}   /* fel-panel cover, nincs nagyitas (elesseg) */
   .half--can .half__bg{transform:none}
 }
@@ -174,8 +172,8 @@ body.age-locked{overflow:hidden}
   .half__bg{transform:none!important;inset:0!important;width:auto!important}   /* mobilon full-width stacked (a desktop fel-panel width feloldva) */
   /* recrop a stack-hez: alany + termek frame-ben, tomorebb kivagas */
   /* bottle: a palack a hf-forras kozep-jobb also reszen -> object-position kozep-jobbra + kicsit le, hogy a palack + ferfi+parduc a kartyaba essen (Aurora comp-note) */
-  .half--bottle .half__bg img{object-position:50% 46%;filter:brightness(.9) saturate(.96)}
-  .half--can .half__bg img{object-position:52% 30%;filter:brightness(.92)}
+  .half--bottle .half__bg img{object-position:50% 46%;filter:brightness(.42) saturate(.55) blur(2.2px)}
+  .half--can .half__bg img{object-position:52% 30%;filter:brightness(.42) saturate(.55) blur(2.2px)}
   /* LOKALIS scrim a szoveg mogott, nem globalis sotetites. bottle: FONT scrim (szoveg felul, a baked ICON Spirante IX lockup ALUL marad, nem utkozik). can: LENT. */
   .half--bottle .half__scrim{background:linear-gradient(180deg,rgba(10,9,8,.93) 0%,rgba(10,9,8,.55) 34%,rgba(10,9,8,0) 64%)!important;opacity:1}
   .half--can .half__scrim{background:linear-gradient(0deg,rgba(10,9,8,.92) 0%,rgba(10,9,8,.55) 32%,rgba(10,9,8,0) 62%)!important;opacity:1}
@@ -184,11 +182,8 @@ body.age-locked{overflow:hidden}
     max-width:none;text-align:left;align-items:flex-start;gap:.45rem}
   .half--bottle .half__content{top:clamp(1.3rem,4vh,2rem);bottom:auto}   /* bal-FONT, a baked lockup fole */
   .half--can .half__content{bottom:clamp(1.4rem,4vh,2.2rem);top:auto}    /* bal-ALUL */
-  .half--bottle .half__title{font-size:clamp(2.1rem,10vw,3rem)}
-  .half--can .half__title{font-size:clamp(2rem,9vw,2.8rem);color:var(--ink)}
-  .half__line{font-size:.84rem}
-  .half--can .half__9{font-size:1.5rem;order:-1}
-  .half .eyebrow{letter-spacing:.16em}
+  .half--bottle .slogan__img,.half--can .slogan__img{width:min(58vw,270px)}
+  .half--can .slogan__img{margin-left:0}
 }
 
 /* landing belepo (CSS, .js prefix) */
@@ -200,16 +195,19 @@ body.age-locked{overflow:hidden}
 
 /* COMING SOON — arany kozepfelirat (Cinzel), diszkret sotet scrim-platen, hogy NE vagja az arcokat/termekeket */
 .landing__center::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:min(150%,40rem);height:340%;z-index:-1;border-radius:50%;
+  width:min(170%,58rem);height:380%;z-index:-1;border-radius:50%;
   background:radial-gradient(closest-side,rgba(8,7,6,.66),rgba(8,7,6,.34) 54%,transparent 78%)}
 .landing__coming{font-family:var(--font-display);font-weight:700;text-transform:uppercase;color:var(--gold-bright);
-  font-size:clamp(1.9rem,4vw,3.4rem);letter-spacing:.14em;line-height:1;margin-top:.7rem;
-  text-shadow:0 2px 24px rgba(8,7,6,.7),0 0 2px rgba(8,7,6,.6)}
+  font-size:clamp(2.7rem,6.6vw,5.7rem);letter-spacing:.12em;line-height:1;margin-top:.8rem;
+  text-shadow:0 2px 28px rgba(8,7,6,.75),0 0 2px rgba(8,7,6,.6)}
+.landing__date{font-family:var(--font-body);font-weight:400;font-size:clamp(.82rem,1.3vw,1.02rem);letter-spacing:.26em;
+  text-transform:uppercase;color:var(--ink);opacity:.85;margin-top:1.15rem}
 @media(max-width:767px){
   .landing__center{display:block!important;z-index:6;width:max-content;max-width:92vw}
-  .landing__center::before{width:132%;height:300%}
+  .landing__center::before{width:140%;height:320%}
   .landing__brand{color:var(--ink);opacity:.92}
-  .landing__coming{font-size:clamp(1.5rem,6.5vw,2.2rem);margin-top:.45rem;letter-spacing:.1em}
+  .landing__coming{font-size:clamp(1.65rem,7vw,2.4rem);margin-top:.5rem;letter-spacing:.08em}
+  .landing__date{font-size:.7rem;letter-spacing:.2em;margin-top:.85rem}
 }
 </style>
 
@@ -254,22 +252,19 @@ body.age-locked{overflow:hidden}
      ========================================================= -->
 <section class="landing" aria-label="ICON Spirante IX, hamarosan">
 
-  <!-- JOBB fel: LIVE ICONIC (a jovahagyott "What's your story?" kep) -->
+  <!-- JOBB fel: szlogen "Pure taste. Iconic moments." (teaser-fade kep, minden regi felirat leveve) -->
   <div class="half half--can" aria-hidden="true">
     <div class="half__bg"><picture>
       <source type="image/avif" sizes="60vw" srcset="media/coming-split-right.avif">
       <source type="image/webp" sizes="60vw" srcset="media/coming-split-right.webp">
-      <img src="media/coming-split-right.jpg" alt="ICON Spirante IX, What's your story jelenet" fetchpriority="high" decoding="async"></picture></div>
+      <img src="media/coming-split-right.jpg" alt="ICON Spirante IX, hamarosan" fetchpriority="high" decoding="async"></picture></div>
     <div class="half__scrim"></div>
     <div class="half__content">
-      <span class="eyebrow">250 ml · Walking Pack</span>
-      <span class="half__title">LIVE<br>ICONIC</span>
-      <span class="half__9">9% <span style="font-family:var(--font-body);font-size:.5em;letter-spacing:.1em">ALC.</span></span>
-      <span class="half__line">Vodka. Fesztivál. Beach club.<br>Green Apple, grapefruit, lime.<br>Gin Hibiscus.</span>
+      <img class="slogan__img" src="media/slogan-puretaste.webp" alt="Pure taste. Iconic moments." width="977" height="615" decoding="async">
     </div>
   </div>
 
-  <!-- BAL fel: AZ ESTE IKONJA (meglevo, optimalizalt bal keyart) -->
+  <!-- BAL fel: szlogen "No trends. This is Icon." (meglevo bal keyart, teaser-fade) -->
   <div class="half half--bottle" aria-hidden="true">
     <div class="half__bg"><picture>
       <source media="(min-width:768px)" type="image/avif" sizes="55vw" srcset="media/keyart-750leftW-1000.avif 1000w, media/keyart-750leftW-1750.avif 1750w">
@@ -280,9 +275,7 @@ body.age-locked{overflow:hidden}
       <img src="media/keyart-750left-1100.jpg" sizes="100vw" srcset="media/keyart-750left-550.jpg 550w, media/keyart-750left-825.jpg 825w, media/keyart-750left-1100.jpg 1100w" alt="ICON Spirante IX 750 ml, férfi fekete párduccal és a Prestige üveggel" fetchpriority="high" decoding="async"></picture></div>
     <div class="half__scrim"></div>
     <div class="half__content">
-      <span class="eyebrow">750 ml · Prestige Serving Bottle</span>
-      <span class="half__title">Az este<br>ikonja</span>
-      <span class="half__line">Gin Hibiscus &amp; Tonic. Elegáns. Esti.</span>
+      <img class="slogan__img" src="media/slogan-notrends.webp" alt="No trends. This is Icon." width="956" height="605" decoding="async">
     </div>
   </div>
 
@@ -296,6 +289,7 @@ body.age-locked{overflow:hidden}
   <div class="landing__center">
     <div class="landing__brand">Icon Spirante IX</div>
     <div class="landing__coming">Coming Soon</div>
+    <div class="landing__date">(July 20, 2026)</div>
   </div>
 </section>
 
