@@ -75,6 +75,7 @@ html:not(.js) .loader{display:none}
 .agegate__fields{display:flex;gap:.8rem;justify-content:center}
 .agegate__f{display:flex;flex-direction:column;gap:.5rem;text-align:left}
 .agegate__f span{font-family:var(--font-body);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.agegate__f span small{font-size:.82em;letter-spacing:.16em;opacity:.65}
 .agegate__in{width:100%;background:rgba(244,239,228,.04);border:1px solid var(--line);border-radius:6px;
   color:var(--ink);font-family:var(--font-display);font-size:1.5rem;text-align:center;padding:.7rem .4rem;
   letter-spacing:.06em;transition:border-color .25s var(--ease),box-shadow .25s var(--ease);outline:none}
@@ -222,27 +223,27 @@ body.age-locked{overflow:hidden}
 
     <!-- KORKAPU — szuletesi datum (ev / honap / nap) -->
     <form class="agegate" id="ageGate" novalidate hidden>
-      <p class="agegate__lead">Add meg a születési dátumodat a belépéshez.</p>
+      <p class="agegate__lead">Enter your date of birth to continue.</p>
       <div class="agegate__fields">
         <label class="agegate__f">
-          <span>Év</span>
+          <span>Year <small>· év</small></span>
           <input id="ag-year" class="agegate__in" type="text" inputmode="numeric" autocomplete="off"
-                 maxlength="4" placeholder="ÉÉÉÉ" aria-label="Születési év, négy számjegy">
+                 maxlength="4" placeholder="YYYY" aria-label="Birth year, four digits">
         </label>
         <label class="agegate__f">
-          <span>Hónap</span>
+          <span>Month <small>· hó</small></span>
           <input id="ag-month" class="agegate__in" type="text" inputmode="numeric" autocomplete="off"
-                 maxlength="2" placeholder="HH" aria-label="Születési hónap">
+                 maxlength="2" placeholder="MM" aria-label="Birth month">
         </label>
         <label class="agegate__f">
-          <span>Nap</span>
+          <span>Day <small>· nap</small></span>
           <input id="ag-day" class="agegate__in" type="text" inputmode="numeric" autocomplete="off"
-                 maxlength="2" placeholder="NN" aria-label="Születési nap">
+                 maxlength="2" placeholder="DD" aria-label="Birth day">
         </label>
       </div>
       <p class="agegate__err" id="ag-err" role="alert" aria-live="assertive"></p>
       <button class="agegate__btn" id="ag-submit" type="submit">Belépés</button>
-      <p class="agegate__legal">Csak 18 éven felülieknek. A túlzott alkoholfogyasztás károsítja az egészséget.</p>
+      <p class="agegate__legal">Csak 18 éven felülieknek. · 18+ only.</p>
     </form>
   </div>
 </div>
